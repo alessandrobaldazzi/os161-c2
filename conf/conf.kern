@@ -326,9 +326,6 @@ file      thread/synch.c
 file      thread/thread.c
 file      thread/threadlist.c
 
-defoption hangman
-optfile   hangman thread/hangman.c
-
 #
 # Process system
 #
@@ -375,22 +372,21 @@ file      vfs/devnull.c
 # (You will probably want to add stuff here while doing the basic system
 # calls assignment.)
 #
-defoption fileio
+defoption syscalls
 
 file      syscall/loadelf.c
 file      syscall/runprogram.c
 file      syscall/time_syscalls.c
-optfile fileio syscall/file_syscall.c
+optfile syscalls syscall/file_syscalls.c
+optfile syscalls syscall/proc_syscalls.c
 
 
 #
 # Startup and initialization
 #
 
-defoption hello
 file      main/main.c
 file      main/menu.c
-optfile hello   main/hello.c
 
 ########################################
 #                                      #
@@ -405,6 +401,12 @@ defoption semfs
 optfile   semfs  fs/semfs/semfs_fsops.c
 optfile   semfs  fs/semfs/semfs_obj.c
 optfile   semfs  fs/semfs/semfs_vnops.c
+
+defoption locks
+defoption locks_with_spin
+defoption cv_impl
+defoption waitpid
+defoption shell
 
 #
 # sfs (the small/simple filesystem)

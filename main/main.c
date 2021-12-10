@@ -210,9 +210,6 @@ void
 kmain(char *arguments)
 {
 	boot();
-	#if OPT_HELLO
-	hello();
-	#endif
 	menu(arguments);
 
 	/* Should not get here */
